@@ -30,25 +30,3 @@ export const ContactList = () => {
     </ul>
   );
 };
-
-// export const ContactList = ({ contacts, onDeleteContact }) => {
-
-//   return (
-//     <ul>
-//       {contacts.map(contact => (
-//         <Item key={contact.id}>
-//           <ContactItem contact={contact} onDeleteContact={onDeleteContact} />
-//         </Item>
-//       ))}
-//     </ul>
-//   );
-// };
-
-// ContactList.propTypes = {
-//   contacts: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.string.isRequired,
-//     })
-//   ).isRequired,
-//   onDeleteContact: PropTypes.func.isRequired,
-// };
