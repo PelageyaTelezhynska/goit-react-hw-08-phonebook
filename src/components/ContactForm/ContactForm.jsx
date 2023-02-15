@@ -4,8 +4,8 @@ import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import styled from 'styled-components';
 import { StyledForm, Label, StyledField, Button } from './ContactForm.styled';
-import { getContacts } from 'redux/selectors';
-import { addContact } from 'redux/contactsSlice';
+import { selectContacts } from 'redux/selectors';
+import { addContact } from 'redux/operations';
 
 const ErrorText = styled.div`
   padding: 8px;
@@ -25,19 +25,18 @@ const schema = yup.object().shape({
 });
 
 export const ContactForm = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
-    const { name, number } = values;
     if (
       contacts.find(
-        element => element.name.toLowerCase() === name.toLowerCase()
+        element => element.name.toLowerCase() === values.name.toLowerCase()
       )
     ) {
-      alert(`${name} is already in contacts`);
+      alert(`${values.name} is already in contacts`);
     } else {
-      dispatch(addContact(name, number));
+      dispatch(addContact(values));
     }
     resetForm();
   };
