@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
+import { Grid } from '@mui/material';
 import { ContactItem } from 'components/ContactList/ContactItem';
-import { Item } from './ContactList.styled';
-import { selectVisibleContacts } from 'redux/selectors';
+import { selectVisibleContacts } from 'redux/contacts/selectors';
 
 export const ContactList = () => {
   const visibleContacts = useSelector(selectVisibleContacts);
@@ -11,12 +11,10 @@ export const ContactList = () => {
   }
 
   return (
-    <ul>
+    <Grid container spacing={2} columns={1}>
       {visibleContacts.map(contact => (
-        <Item key={contact.id}>
-          <ContactItem contact={contact} />
-        </Item>
+        <ContactItem key={contact.id} contact={contact} />
       ))}
-    </ul>
+    </Grid>
   );
 };
