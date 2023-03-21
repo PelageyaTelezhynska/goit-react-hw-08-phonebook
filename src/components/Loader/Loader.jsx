@@ -4,9 +4,10 @@ import Box from '@mui/material/Box';
 export const Loader = () => {
   return (
     <Box
+      margin="auto"
       sx={{ display: 'flex' }}
       spacing={0}
-      color={'primary'}
+      color={'secondary'}
       direction="column"
       alignItems="center"
       justifyContent="center"

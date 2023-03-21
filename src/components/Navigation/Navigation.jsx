@@ -1,33 +1,36 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Button } from '@mui/material';
+import { Box, Tab, Tabs } from '@mui/material';
 import { useAuth } from 'hooks';
 
 export const Navigation = () => {
+  const [value, setValue] = useState('/');
   const { isLoggedIn } = useAuth();
 
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
-    <nav>
-      <Button
-        component={NavLink}
-        to="/"
-        color="inherit"
-        variant="contained"
-        role={undefined}
+    <Box>
+      <Tabs
+        variant="standart"
+        value={value}
+        to={value}
+        onChange={handleChange}
+        textColor="inherit"
+        // indicatorColor="inherit"
       >
-        Home
-      </Button>
-      {isLoggedIn && (
-        <Button
-          component={NavLink}
-          to="/contacts"
-          color="inherit"
-          role={undefined}
-        >
-          Contacts
-        </Button>
-      )}
-      {/* <NavLink to="/">Home</NavLink>
-      {isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>} */}
-    </nav>
+        <Tab component={NavLink} value="/" to="/" label="Home" />
+        {isLoggedIn && (
+          <Tab
+            component={NavLink}
+            value="/contacts"
+            to="/contacts"
+            label="Contacts"
+          />
+        )}
+      </Tabs>
+    </Box>
   );
 };

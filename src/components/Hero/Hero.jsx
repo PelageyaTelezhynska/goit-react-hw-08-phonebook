@@ -1,8 +1,19 @@
 import { Box, Typography } from '@mui/material';
 import HeroImage from '../../images/HeroImage.jpg';
-const Hero = () => {
+export const Hero = () => {
   return (
-    <Box>
+    <Box mb={4}>
+      <Typography align="center" variant="h3" sx={{ fontWeight: 900 }} mt={4}>
+        Phonebook
+      </Typography>
+      <Typography
+        align="center"
+        variant="body1"
+        sx={{ fontWeight: 100 }}
+        mb={3}
+      >
+        To keep in touch
+      </Typography>
       <Box
         sx={{
           backgroundImage: `url(${HeroImage})`,
@@ -19,7 +30,7 @@ const Hero = () => {
       >
         <Box
           sx={{
-            width: { xs: '100%', sm: '50%', md: '40%' },
+            width: '100%',
             padding: { xs: 3, sm: 2, md: 20 },
           }}
         >
@@ -27,7 +38,7 @@ const Hero = () => {
             sx={{
               background: 'white',
               opacity: '0.8',
-              padding: { xs: 2, sm: 1, md: 3 },
+              padding: { xs: 3, sm: 2, md: 4 },
             }}
           >
             <Typography
@@ -54,5 +65,3 @@ const Hero = () => {
     </Box>
   );
 };
-
-export default Hero;

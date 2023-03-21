@@ -16,7 +16,7 @@ const TextfieldWrapper = ({ name, ...otherProps }) => {
     configTextfield.helperText = mata.error;
   }
 
-  return <TextField {...configTextfield} />;
+  return <TextField {...configTextfield} color="secondary" />;
 };
 
 export default TextfieldWrapper;

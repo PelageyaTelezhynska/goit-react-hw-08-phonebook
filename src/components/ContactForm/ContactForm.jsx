@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import { Container, Grid, Typography, Button } from '@mui/material';
+import { AddIcCall } from '@mui/icons-material';
 import Textfield from '../Common/TextField';
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';
@@ -23,11 +24,15 @@ const ButtonWrapper = ({ children, ...otherProps }) => {
   const configButton = {
     variant: 'contained',
     type: 'submit',
-    color: 'primary',
+    color: 'secondary',
     fullWidth: true,
   };
 
-  return <Button {...configButton}>{children}</Button>;
+  return (
+    <Button {...configButton} endIcon={<AddIcCall />}>
+      {children}
+    </Button>
+  );
 };
 
 export const ContactForm = () => {
@@ -57,7 +62,7 @@ export const ContactForm = () => {
         <Form>
           <Grid container spacing={2} columns={1}>
             <Grid item xs={12}>
-              <Typography variant="h4" component="h3" align="center">
+              <Typography variant="h4" component="h3" align="center" mb={2}>
                 Add your new contact here
               </Typography>
             </Grid>

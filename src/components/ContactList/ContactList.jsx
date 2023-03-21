@@ -11,7 +11,7 @@ export const ContactList = () => {
   }
 
   return (
-    <Grid container spacing={2} columns={1}>
+    <Grid container spacing={2} columns={1} xs={12}>
       {visibleContacts.map(contact => (
         <ContactItem key={contact.id} contact={contact} />
       ))}

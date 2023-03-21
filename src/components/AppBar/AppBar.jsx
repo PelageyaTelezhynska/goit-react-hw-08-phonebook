@@ -5,42 +5,41 @@ import { AuthNav } from '../AuthNav/AuthNav';
 import { useAuth } from 'hooks';
 import {
   AppBar,
+  Box,
   Container,
   IconButton,
   Toolbar,
   Typography,
 } from '@mui/material';
-import { ContactPhoneTwoTone } from '@mui/icons-material';
+import { Contacts } from '@mui/icons-material';
 
 export const AppBarStyled = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar>
-          <IconButton
-            component={NavLink}
-            to="/"
-            size="large"
-            edge="start"
-            color="inherit"
-            role={undefined}
-            sx={{ mr: 2 }}
-          >
-            <ContactPhoneTwoTone />
-          </IconButton>
-          <Typography variant="h6" component="span">
-            Phonebook
-          </Typography>
+    <AppBar component="header" position="static">
+      <Container>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Box>
+            <IconButton
+              component={NavLink}
+              to="/"
+              size="large"
+              edge="start"
+              color="secondary"
+              role={undefined}
+              sx={{ mr: 2 }}
+            >
+              <Contacts />
+            </IconButton>
+            <Typography variant="h6" component="span" color="secondary">
+              Phonebook
+            </Typography>
+          </Box>
           <Navigation />
           {isLoggedIn ? <UserMenu /> : <AuthNav />}
         </Toolbar>
       </Container>
     </AppBar>
-    // <header>
-    //   <Navigation />
-    //   {isLoggedIn ? <UserMenu /> : <AuthNav />}
-    // </header>
   );
 };

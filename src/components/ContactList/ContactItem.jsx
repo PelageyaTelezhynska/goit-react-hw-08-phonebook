@@ -11,7 +11,6 @@ import { Clear, Person } from '@mui/icons-material';
 import PropTypes from 'prop-types';
 import { deleteContact } from 'redux/contacts/operations';
 import { IconButton } from '@mui/material';
-// import { Info, Button } from './ContactList.styled';
 
 export const ContactItem = ({ contact: { name, number, id } }) => {
   const dispatch = useDispatch();
@@ -19,11 +18,17 @@ export const ContactItem = ({ contact: { name, number, id } }) => {
 
   return (
     <Grid item xs={8}>
-      <Card sx={{ display: 'flex', alignItems: 'center' }}>
+      <Card width="100%" sx={{ display: 'flex', alignItems: 'center' }}>
         <CardContent
-          sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}
+          sx={{
+            display: 'flex',
+            flexWrap: { xs: 'wrap', sm: 'noWrap', md: 'noWrap' },
+            alignItems: 'center',
+            justifyContent: 'start',
+            flexGrow: 1,
+          }}
         >
-          <Person />
+          <Person color="secondary" />
           <Typography variant="h6" component="h3" ml={2}>
             {name}
           </Typography>

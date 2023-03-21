@@ -7,6 +7,7 @@ import { ContactList } from 'components/ContactList/ContactList';
 import { selectIsLoading, selectError } from 'redux/contacts/selectors';
 import { fetchContacts } from 'redux/contacts/operations';
 import { Loader } from 'components/Loader/Loader';
+import ContactListImage from '../images/ContactListImage.jpg';
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -19,21 +20,56 @@ export default function Contacts() {
 
   return (
     <Container>
-      <Typography variant="h3" component="h1" align="center">
+      <Typography variant="h3" component="h1" align="center" mb={3} mt={3}>
         Phonebook
       </Typography>
 
-      <Grid display="flex">
-        <ContactForm />
+      <Grid
+        mb={3}
+        sx={{
+          display: 'flex',
+          flexWrap: { xs: 'wrap', sm: 'wrap', md: 'noWrap' },
 
-        <Box>
-          <Typography variant="h4" component="h2" align="center">
-            Contacts
-          </Typography>
-          <Filter />
-          {isLoading && !error && <Loader />}
-          <ContactList />
-        </Box>
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Grid item mb={3}>
+          <ContactForm />
+        </Grid>
+
+        <Grid item sx={{ width: { xs: '100%', sm: '100%', md: 800 } }}>
+          <Box
+            sx={{
+              backgroundImage: `url(${ContactListImage})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundColor: 'black',
+              backgroundAttachment: 'fixed',
+              objectFit: 'cover',
+              height: 600,
+              width: '100%',
+            }}
+          >
+            <Box p={3}>
+              <Box
+                mb={2}
+                p={1}
+                sx={{
+                  background: 'white',
+                  opacity: '0.5',
+                }}
+                borderRadius={2}
+              >
+                <Typography variant="h4" component="h2" align="center">
+                  Contacts
+                </Typography>
+              </Box>
+              <Filter />
+              {isLoading && !error && <Loader />}
+              <ContactList />
+            </Box>
+          </Box>
+        </Grid>
       </Grid>
     </Container>
   );

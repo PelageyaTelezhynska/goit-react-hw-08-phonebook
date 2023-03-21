@@ -15,8 +15,6 @@ export const AuthNav = () => {
       <Button component={NavLink} to="/login" color="inherit" role={undefined}>
         Log In
       </Button>
-      {/* <NavLink to="/register">Register</NavLink>
-      <NavLink to="/login">Log In</NavLink> */}
     </div>
   );
 };

@@ -14,8 +14,9 @@ export const Filter = () => {
   return (
     <TextField
       label="Find contacts by name"
-      variant="standard"
+      variant="filled"
       fullWidth
+      color="secondary"
       type="search"
       value={filter}
       onChange={handleFilterChange}
