@@ -52,36 +52,3 @@ export const App = () => {
     </Routes>
   );
 };
-
-// import { useEffect, lazy } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { Route, Routes } from 'react-router-dom';
-// import { GlobalStyle } from './GlobalStyle';
-// import { Container } from './Container';
-// import { ContactForm } from './ContactForm/ContactForm';
-// import { Filter } from './Filter/Filter';
-// import { ContactList } from './ContactList/ContactList';
-// import { selectIsLoading, selectError } from 'redux/contacts/selectors';
-// import { fetchContacts } from 'redux/contacts/operations';
-
-// export const App = () => {
-//   const dispatch = useDispatch();
-//   const isLoading = useSelector(selectIsLoading);
-//   const error = useSelector(selectError);
-
-//   useEffect(() => {
-//     dispatch(fetchContacts());
-//   }, [dispatch]);
-
-//   return (
-//     <Container>
-//       <GlobalStyle />
-//       <h1>Phonebook</h1>
-//       <ContactForm />
-//       <h2>Contacts</h2>
-//       <Filter />
-//       {isLoading && !error && <p>Request in progress...</p>}
-//       <ContactList />
-//     </Container>
-//   );
-// };

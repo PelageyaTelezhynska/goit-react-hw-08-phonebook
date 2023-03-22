@@ -5,12 +5,10 @@ export const Loader = () => {
   return (
     <Box
       margin="auto"
-      sx={{ display: 'flex' }}
+      sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
       spacing={0}
       color={'secondary'}
       direction="column"
-      alignItems="center"
-      justifyContent="center"
     >
       <CircularProgress />
     </Box>

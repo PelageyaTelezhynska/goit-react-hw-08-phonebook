@@ -19,8 +19,20 @@ export const AppBarStyled = () => {
   return (
     <AppBar component="header" position="static">
       <Container>
-        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Box>
+        <Toolbar
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
             <IconButton
               component={NavLink}
               to="/"

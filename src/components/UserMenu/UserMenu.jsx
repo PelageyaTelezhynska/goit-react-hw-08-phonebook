@@ -10,9 +10,17 @@ export const UserMenu = () => {
 
   return (
     <Box
-      sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
     >
-      <Typography variant="body1" mr={2}>
+      <Typography
+        variant="body1"
+        mr={2}
+        sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}
+      >
         Welcome, <b>{user.email}</b>
       </Typography>
       <Button
@@ -23,7 +31,12 @@ export const UserMenu = () => {
         onClick={() => dispatch(logOut())}
         endIcon={<Logout />}
       >
-        Logout
+        <Typography
+          component="span"
+          sx={{ display: { xs: 'none', sm: 'block', md: 'block' } }}
+        >
+          Logout
+        </Typography>
       </Button>
     </Box>
   );
