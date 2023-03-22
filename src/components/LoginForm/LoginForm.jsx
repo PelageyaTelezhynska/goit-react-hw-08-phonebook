@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
-import { Container, Grid, Typography, Button } from '@mui/material';
+import { Container, Grid, Button } from '@mui/material';
 import { Login } from '@mui/icons-material';
 import Textfield from '../Common/TextField';
 import { logIn } from 'redux/auth/operations';
@@ -14,25 +14,6 @@ const schema = yup.object().shape({
   email: yup.string().email().required(),
   password: yup.string().required(),
 });
-
-const ButtonWrapper = ({ children, ...otherProps }) => {
-  const configButton = {
-    variant: 'contained',
-    type: 'submit',
-    color: 'secondary',
-    fullWidth: true,
-  };
-
-  return (
-    <Button
-      {...configButton}
-      endIcon={<Login />}
-      sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-    >
-      {children}
-    </Button>
-  );
-};
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -51,18 +32,6 @@ export const LoginForm = () => {
       >
         <Form>
           <Grid container spacing={2} columns={1}>
-            <Grid item xs={12}>
-              <Typography
-                variant="h4"
-                component="h2"
-                align="center"
-                mb={2}
-                mt={4}
-              >
-                Log In
-              </Typography>
-            </Grid>
-
             <Grid item xs={6}>
               <Textfield
                 name="email"
@@ -76,7 +45,20 @@ export const LoginForm = () => {
               <Textfield name="password" label="Password" type="password" />
             </Grid>
             <Grid item xs={6}>
-              <ButtonWrapper>Log In</ButtonWrapper>
+              <Button
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                variant="contained"
+                type="submit"
+                color="secondary"
+                fullWidth
+                endIcon={<Login />}
+              >
+                Log In
+              </Button>
             </Grid>
           </Grid>
         </Form>

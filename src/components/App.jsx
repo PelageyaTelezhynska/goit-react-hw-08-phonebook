@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
+import { PageNotFound } from 'pages/PageNotFound';
 import { refreshUser } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
 import { Loader } from './Loader/Loader';
@@ -48,6 +49,7 @@ export const App = () => {
             <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
         />
+        <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
   );
